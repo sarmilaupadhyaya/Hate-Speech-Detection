@@ -5,7 +5,7 @@ DeepLearning Project, masters in NLP, second year.
 
 This project is for the binary classification of toxic comments using rcnn. We implemented using two different tokenization.
 - Normal word tokenization
-- byte pair encoding using sentence piece
+- word embedding with subword information (byte pair encoding using sentence piece)
 
 # Outline
 
@@ -55,7 +55,8 @@ This project is for the binary classification of toxic comments using rcnn. We i
 ## Introduction
 
 This project is the implementation for binary classification. The steps are cleaning the dataset and removing non letters, then creating dataloader, training, evaluating and saving the model.
-The training and validation losses and accuracy can be tracked [here](https://wandb.ai/sarmila433/Toxic%20comment%20classification)
+The training and validation losses and accuracy can be tracked: [model1](https://wandb.ai/sarmila433/Toxic%20comment%20classification)
+[model2](https://wandb.ai/sarmila433/Toxic%20comment%20classification)
 
 
 ## Installation
