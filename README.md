@@ -198,7 +198,7 @@ python3 src/main.py --type test --textfile <filepath> --sentencepiece True
 
 ## Dataset
 
-<!-- - [Link](https://www.kaggle.com/arkhoshghalb/twitter-sentiment-analysis-hatred-speech) -->
+ [Link](https://www.kaggle.com/arkhoshghalb/twitter-sentiment-analysis-hatred-speech)
 We splitted the data as 60:20:20. 60 percent for training, 20 for test and rest for validation. Data is splitted and saved inside data/ directory.
 
 ## Results
