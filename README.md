@@ -39,7 +39,7 @@ In order to get the model to run, follow these installation instructions.
 <!-- ### Requirements -->
 Pre-requisites:
 
-    python>3
+    python>=3
 
 
 ### 1. Clone the repository
@@ -124,6 +124,19 @@ optional arguments:
 ```
 
 ### train
+#### using word tokenization + embeddings of words
+
+```
+python3 src/main.py --type train
+```
+*** model will be saved inside output/ directory ***
+
+### using sentence piece + embeddings of subwords 
+
+```
+python3 src/main.py --type train --sentencepiece True
+```
+*** model will be saved inside output/ directory ***
 
 ### test
 
