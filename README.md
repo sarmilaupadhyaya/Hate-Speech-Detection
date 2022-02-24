@@ -195,8 +195,16 @@ We splitted the data as 60:20:20. 60 percent for training, 20 for test and rest 
 Result on test dataset:
 
 ### Model with word tokenization
+Metrics | #F1 score | #Accuracy | #Precision | #Recall 
+--- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---
+Values | 301 | 283 | 290 | 286 
+
 
 ### Model with sentence piece
+Metrics | #F1 score | #Accuracy | #Precision | #Recall 
+--- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---
+Values | 301 | 283 | 290 | 286 
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
