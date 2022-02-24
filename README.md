@@ -184,9 +184,19 @@ python3 src/main.py --type test --sentencepiece True
 
 ### inference
 
+#### using word tokenization + embeddings of words
+```
+python3 src/main.py --type test
+```
+
+### using sentence piece + embeddings of subwords 
+```
+python3 src/main.py --type test --sentencepiece True
+```
 ---
 
-
+## Cost of Training
+it takes around ...
 ## Dataset
 
 <!-- - [Link](https://www.kaggle.com/arkhoshghalb/twitter-sentiment-analysis-hatred-speech) -->
