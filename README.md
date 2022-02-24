@@ -20,6 +20,7 @@ This project is for the binary classification of toxic comments using rcnn. We i
 
 ## Directory structure
 
+
     ```
 ├── data
 │   ├── all_train.csv ## train and val data merged together
