@@ -2,7 +2,6 @@
 # Hate-Speech-Detection.
 DeepLearning Project, masters in NLP, second year.
 
-![architecture](https://github.com/IuliiaZaitova/code_slingers/blob/master/images/example-2.png?raw=true)
 
 This project is for the binary classification of toxic comments using rcnn. We implemented using two different tokenization.
 - Normal word tokenization
