@@ -15,6 +15,7 @@ non_letters_path="output/non_letters.pkl"
 batch_size=64
 vocab_size=37633
 embedding_dim=300
+filters=300
 hidden_size=512
 hidden_size_linear=512
 class_num=2

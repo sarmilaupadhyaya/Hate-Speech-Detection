@@ -95,7 +95,7 @@ def main(type_action, filepath,sentencepiece=False):
         vocab_size=params.vocab_size
         padding_idx=params.padding_idx
         model_path=params.model_path
-    model = RCNN(vocab_size=vocab_size,
+    model = RCNN(vocab_size=vocab_size,filter_size=params.filters,
                  embedding_dim=params.embedding_dim,
                  hidden_size=params.hidden_size,
                  hidden_size_linear=params.hidden_size_linear,
