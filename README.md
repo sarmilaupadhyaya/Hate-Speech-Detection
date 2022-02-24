@@ -140,6 +140,20 @@ python3 src/main.py --type train --sentencepiece True
 
 ### test
 
+#### using word tokenization + embeddings of words
+
+```
+python3 src/main.py --type test
+```
+*** model will be saved inside output/ directory ***
+
+### using sentence piece + embeddings of subwords 
+
+```
+python3 src/main.py --type test --sentencepiece True
+```
+*** model will be saved inside output/ directory ***
+
 ### inference
 
 ---
