@@ -186,12 +186,12 @@ python3 src/main.py --type test --sentencepiece True
 
 #### using word tokenization + embeddings of words
 ```
-python3 src/main.py --type test
+python3 src/main.py --textfile <filepath> --type test
 ```
 
 ### using sentence piece + embeddings of subwords 
 ```
-python3 src/main.py --type test --sentencepiece True
+python3 src/main.py --type test --textfile <filepath> --sentencepiece True
 ```
 ---
 
