@@ -21,7 +21,6 @@ This project is for the binary classification of toxic comments using rcnn. We i
 ## Directory structure
 
     ```
-    .
 ├── data
 │   ├── all_train.csv ## train and val data merged together
 │   ├── split_data.py ## to merge the main file into train, test and val, for development purpose only.
@@ -48,7 +47,9 @@ This project is for the binary classification of toxic comments using rcnn. We i
 │   ├── rcnn.py ## model class
 │   └── train.py ## training file
 └── tree.txt ## directory structure
+
     ```
+
 
 
 ## Introduction
