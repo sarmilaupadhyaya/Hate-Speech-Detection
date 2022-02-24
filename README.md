@@ -55,6 +55,7 @@ This project is for the binary classification of toxic comments using rcnn. We i
 ## Introduction
 
 This project is the implementation for binary classification. The steps are cleaning the dataset and removing non letters, then creating dataloader, training, evaluating and saving the model.
+The training and validation losses and accuracy can be tracked [here]()
 
 
 ## Installation
