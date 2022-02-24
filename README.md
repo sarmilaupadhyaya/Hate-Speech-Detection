@@ -21,7 +21,33 @@ This project is for the binary classification of toxic comments using rcnn. We i
 ## Directory structure
 
     ```
-    
+    .
+├── data
+│   ├── all_train.csv ## train and val data merged together
+│   ├── split_data.py ## to merge the main file into train, test and val, for development purpose only.
+│   ├── test.csv ## test data
+│   ├── train.csv ## train data
+│   └── val.csv ## calidation data
+├── inference_text.txt
+├── output
+│   ├── best.pt ## trained model 1
+│   ├── best_spm.pt ## trained model 2(using sentence piece)
+│   ├── non_letters.pkl ## saved non letters and special characters
+│   ├── sample.csv # for spm, only tweets saved
+│   ├── spm_user.model ## sentence piece model trained
+│   ├── spm_user.vocab ## sentence piece model vocab
+│   ├── word_to_index.pickle # word to index for model 1
+│   └── word_to_index_spm.pickle # word to index for model 2
+├── README.md 
+├── requirements.txt # requirements
+├── src ## main source codes
+│   ├── dataset.py ## dataset classes
+│   ├── evaluate.py # evalaution code
+│   ├── main.py ## main file to be called
+│   ├── params.py ## params defined
+│   ├── rcnn.py ## model class
+│   └── train.py ## training file
+└── tree.txt ## directory structure
     ```
 
 
