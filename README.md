@@ -195,12 +195,12 @@ We splitted the data as 60:20:20. 60 percent for training, 20 for test and rest 
 ## Results
 Result on test dataset:
 
-### Model with word tokenization
+### Model with word tokenization and data preprocessing
 
 ```
 Metrics | #F1score | #Accuracy | #Precision | #Recall 
 --- | --- | --- | --- |---
-Values | 301 | 283 | 290 | 286 
+Values | 0.7798 | 95.6 | 0.8869 | 0.7234
 ```
 
 
