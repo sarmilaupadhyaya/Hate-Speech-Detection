@@ -107,6 +107,22 @@ If you want to train first, then skip this section!
 
 
 ## Execution
+
+src/main.py needs to be run. Detail about the file arguments
+
+```
+usage: main.py [-h] [--type t] [--textfile TEXTFILE] [--sentencepiece SENTENCEPIECE]
+
+train or text the toxicity classification
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --type t              it could be either train, test or inference
+  --textfile TEXTFILE   text file to test the toxicity
+  --sentencepiece SENTENCEPIECE
+                        to activate sentence piece dataloader
+```
+
 ### train
 
 ### test
