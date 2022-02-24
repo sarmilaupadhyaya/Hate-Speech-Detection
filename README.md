@@ -13,7 +13,6 @@ This project is for the binary classification of toxic comments using rcnn. We i
 2. [Introduction](#introduction)
 3. [Installation](#installation)
 4. [Dataset](#dataset)
-5. [Cost of Training](#Cost-of-Training)
 6. [Result](#Result)
 7. [Contributing](#contributing)
 8. [Licence](#licence)
@@ -55,7 +54,7 @@ This project is for the binary classification of toxic comments using rcnn. We i
 
 ## Introduction
 
-xxx
+This project is the implementation for binary classification. The steps are cleaning the dataset and removing non letters, then creating dataloader, training, evaluating and saving the model.
 
 
 ## Installation
@@ -195,8 +194,7 @@ python3 src/main.py --type test --textfile <filepath> --sentencepiece True
 ```
 ---
 
-## Cost of Training
-it takes around ...
+
 ## Dataset
 
 <!-- - [Link](https://www.kaggle.com/arkhoshghalb/twitter-sentiment-analysis-hatred-speech) -->
