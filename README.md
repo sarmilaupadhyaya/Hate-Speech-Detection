@@ -196,16 +196,20 @@ Result on test dataset:
 
 ### Model with word tokenization
 
-Metrics | #F1 score | #Accuracy | #Precision | #Recall 
---- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---
+```
+Metrics | #F1score | #Accuracy | #Precision | #Recall 
+--- | --- | --- | --- |---
 Values | 301 | 283 | 290 | 286 
+```
 
 
 ### Model with sentence piece
 
-Metrics | #F1 score | #Accuracy | #Precision | #Recall 
---- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---
-Values | 301 | 283 | 290 | 286 
+```
+Metrics | #F1score | #Accuracy | #Precision | #Recall 
+--- | --- | --- | --- |--- 
+Values | 301 | 283 | 290 | 286
+```
 
 
 ## Contributing
