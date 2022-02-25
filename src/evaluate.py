@@ -26,6 +26,16 @@ def metrics(dataloader, losses, correct, y_hats, targets):
 def evaluate(model, valid_dataloader):
     """
     evaluating only. wither for validation or test dataset
+
+    params:
+    model (RCNN class object): rcnn model
+    valid_dataloader: dataloader
+
+    returns:
+
+    value for avg_loss(float), accuracy(float), precision(float), recall(float), f1(float), cm(list of confusion matrix),losses(list)
+
+
     """
     with torch.no_grad():
         model.eval()

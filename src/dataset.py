@@ -22,18 +22,18 @@ def inference_tokens_spm(sentence):
 
     """
     # load the sentence piece
-    tokenizer = load_sp_model(sp_model)
+    tokenizer = load_sp_model(sentencepiece)
     sp_tokens_generator=sentencepiece_tokenizer(sp_model=tokenizer)
     sp_id_generator= sentencepiece_numericalizer(tokenizer)
 
     with open(w2idx_path_spm,"rb") as f:
         word_to_index = pickle.load(f)
 
-    tokens = list(sp_id_generator([text]))[0]
+    tokens = list(sp_id_generator([sentence]))[0]
 
-    for i in range(params.max_seq_len - len(tokens)):
+    for i in range(max_seq_len - len(tokens)):
         tokens.append(word_to_index["[PAD]"])
-    return tokens[:self.max_seq_len]
+    return torch.LongTensor(tokens[:max_seq_len])
 
 
 def inference_tokens(sentence):
@@ -70,7 +70,13 @@ def inference_tokens(sentence):
 
 def create_non_letters(df):
     """
-     gets the special symbol and 
+     gets the special symbol
+     params:
+
+     df (pandas.dataframe): train dataframe
+
+     returns:
+     list of non characters
 
     """
     vocab = []
@@ -102,6 +108,7 @@ class TextDataset(Dataset):
         self.word_to_index["UNK"] = len(self.word_to_index)
         with open(w2idx_path,"wb") as f:
             pickle.dump(self.word_to_index, f)
+
     def __len__(self):
         # return the length of the list of text files
         return len(self.df)
@@ -226,10 +233,6 @@ class TextDatasetSpm(Dataset):
         # return a list of all tokens in the text and the respective label (use the _tokenize_text method)
         tokens = self._tokenize_text(text)
         
-        
-        # use the word_to_index mapping to transform the tokens into indices and save them into an IntTensor
-        # hint: store all indices in a list and then cast the list into a IntTensor
-        
         x = torch.LongTensor(tokens)
 
         # get the index-th label and store it into a FloatTensor
@@ -249,12 +252,16 @@ class TextDatasetSpm(Dataset):
     
     def _tokenize_text(self, text):
         """
-        Removes non-characters from the text and pads the text to max_seq_len.
         *!* Padding is necessary for ensuring that all text_files have the same size
         *!* This is required since DataLoader cannot handle tensors of variable length
 
         Returns a list of all tokens in the text
         """
+        text = text.lower()
+        letters = string.ascii_lowercase
+        not_letters = set([char_ for char_ in text if char_ not in letters and char_ != ' '])
+        for char in not_letters:
+            text = text.replace(char, " ")
         
         tokens = list(self.sp_id_generator([text]))[0]
          

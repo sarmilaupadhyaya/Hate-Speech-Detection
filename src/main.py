@@ -9,27 +9,53 @@ from rcnn import RCNN
 from train import *
 from dataset import *
 
+
 ##data path
 train_df_path = params.train_df
 test_df_path = params.test_df
 val_df_path = params.val_df
 
-def train_sentencepiece(df):
+def train_sentencepiece(df_path):
     """
     function to train sentence piece on training and validation data
+    df (str): path to the csv
     """
-    df = pd.read_csv(df)
+    #clean the dataset
+
+    def clean(text):
+        """
+        params:
+        text (str)
+        returns:
+        clean text
+        """
+
+        text = text.lower()
+        letters = string.ascii_lowercase
+        not_letters = set([char_ for char_ in text if char_ not in letters and char_ != ' '])
+        for char in not_letters:
+            text = text.replace(char, " ")
+
+        return text
+
+    df = pd.read_csv(df_path)
+    df["tweet"] = df.tweet.apply(lambda x: clean(x))
     with open('./sample.csv', 'w', newline='', encoding='utf-8') as f:
         for x in df["tweet"].tolist():
             f.write(x)
             f.write("\n")
     #train and it will save a model bames spm_use.model
-    generate_sp_model('./sample.csv',vocab_size=23456, model_prefix='output/spm_user')
+    generate_sp_model('./sample.csv',vocab_size=19184,model_prefix='output/spm_user')
 
 def fetch_inference_tokens(text, sentencepiece):
     """
     gets the token ids for single sentence using wither sentencepiece implemented textdataset or simple tokenization
+    params:
+    text (str): sentence for inference
+    sentencepiece (bool): wheather sentenpiece or not
 
+    returns:
+    tensor input for the given sentence
     """
 
     if sentencepiece:
@@ -42,6 +68,11 @@ def get_dataloader(type_action, sentencepiece):
 
     """
     loads dataloader for train, test and validation dataset
+    type_action (str): either train or test
+    sentencepiece (bool): wheather sentenpiece or not
+
+    returns:
+    dataloader
 
     """
 
@@ -52,7 +83,7 @@ def get_dataloader(type_action, sentencepiece):
         test_df = pd.read_csv(test_df_path)
         # need to call two different type of dataset depending on the type of tokenization
         if sentencepiece:
-            train_sentencepiece(params.all_train)
+            train_sentencepiece(params.train_val)
             train_dataset = TextDatasetSpm(train_df)
             validation_dataset = TextDatasetSpm(val_df)
         else:
@@ -67,7 +98,9 @@ def get_dataloader(type_action, sentencepiece):
 
     # if test then sends dataloader of test only
     elif type_action == "test":
+        print("****Distribution of data****")
         test_df = pd.read_csv(test_df_path)
+        print(test_df["label"].value_counts())
         if sentencepiece:
             test_dataset = TextDatasetSpm(test_df)
         else:
@@ -109,6 +142,7 @@ def main(type_action, filepath,sentencepiece=False):
         train_(model, optimizer, train_dataloader, val_dataloader,model_path,epochs=params.epochs)
         print('******************** Train Finished ********************')
 
+
     elif type_action == "test":
         
         test_dataloader = get_dataloader(type_action,sentencepiece)
@@ -125,13 +159,15 @@ def main(type_action, filepath,sentencepiece=False):
         if filepath == "":
             sys.exit("Please give the input as a text file")
         texts  = open(filepath, "r").readlines()
-        print(texts)
         for text in texts:
             X = fetch_inference_tokens(text,sentencepiece)
+            print(model_path)
             model.load_state_dict(torch.load(model_path))
-            print(torch.unsqueeze(X,0).shape)
             result = model(torch.unsqueeze(X,0))
+            label = torch.argmax(result).tolist()
+            print(text)
             print(result)
+            print("the above text is:", int_label[label])
 
 
 
