@@ -126,7 +126,7 @@ Conda:
 ---
 
 ### 7. Initial Downloads
-you can directly use the model for either test or inference. Since we have two models, go to this [link](), download the zip file then unzip the file inside output/ directory
+you can directly use the model for either test or inference. Since we have two models, go to this [link](https://drive.google.com/file/d/194TjGtDeoIc4sI4rXZ3tx_rmxGUR8bRf/view?usp=sharing), download the zip file then unzip the file inside output/ directory
 
 
 
@@ -206,21 +206,21 @@ We splitted the data as 60:20:20. 60 percent for training, 20 for test and rest 
 ## Result
 Result on test dataset:
 
-### Model with word tokenization and data preprocessing
+### Model with word tokenization
 
 ```
 Metrics | #F1score | #Accuracy | #Precision | #Recall 
 --- | --- | --- | --- |---
-Values | 0.7798 | 95.6 | 0.8869 | 0.7234
+Values | 0.8137 | 95.5889 | 0.8566 | 0.7814
 ```
 
 
-### Model with sentence piece
+### Model with word tokenization with subword information (using sentence piece)
 
 ```
 Metrics | #F1score | #Accuracy | #Precision | #Recall 
 --- | --- | --- | --- |--- 
-Values | 301 | 283 | 290 | 286
+Values | 0.8278 | 96.1208 | 0.9003 | 0.7802
 ```
 
 
