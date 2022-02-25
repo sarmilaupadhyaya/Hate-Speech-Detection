@@ -55,8 +55,8 @@ This project is for the binary classification of toxic comments using rcnn. We i
 ## Introduction
 
 This project is the implementation for binary classification. The steps are cleaning the dataset and removing non letters, then creating dataloader, training, evaluating and saving the model.
-The training and validation losses and accuracy can be tracked: [model1](https://wandb.ai/sarmila433/Toxic%20comment%20classification)
-[model2](https://wandb.ai/sarmila433/Toxic%20comment%20classification)
+The training and validation losses and accuracy can be tracked: [model1](https://wandb.ai/sarmila433/Toxic%20comment%20classification%20with%20word%20embedding/runs/23x36ngp)
+[model2](https://wandb.ai/sarmila433/Toxic%20comment%20classification%20with%20word%20embedding%28subword%20info%29)
 
 
 ## Installation
