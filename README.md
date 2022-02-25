@@ -46,7 +46,7 @@ This project is for the binary classification of toxic comments using rcnn. We i
 │   ├── params.py ## params defined
 │   ├── rcnn.py ## model class
 │   └── train.py ## training file
-└── tree.txt ## directory structure
+
 
 ```
 
