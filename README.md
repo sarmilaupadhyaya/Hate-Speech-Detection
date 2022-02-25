@@ -200,7 +200,8 @@ python3 src/main.py --type test --textfile <filepath> --sentencepiece True
 ## Dataset
 
  [Link](https://www.kaggle.com/arkhoshghalb/twitter-sentiment-analysis-hatred-speech)
-We splitted the data as 60:20:20. 60 percent for training, 20 for test and rest for validation. Data is splitted and saved inside data/ directory.
+We splitted the data as 60:20:20. 60 percent for training, 20 for test and rest for validation. Data is splitted and saved inside data/ directory. We highly reccomend to use splitted data as the sentence piece vocab is set according to the train and validation data. 
+**Only if you want to re split, then simply put the train.csv file inside data/ and use the split_data python file to create the split. Then, the sentencepiece creation should have vocab size according to these newly splitted data. When you are training with sentence piece if you get error about vocab size, then use the suggested vocab size on main.py file. Similarly, you need to change the params for padding_idx_spm as vocab_size+1 and vocab_size_spm as vocab size of sentence piece.**
 
 ## Result
 Result on test dataset:
